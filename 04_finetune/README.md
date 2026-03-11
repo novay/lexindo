@@ -38,6 +38,17 @@ Fine-tuning dilakukan secara **bertahap** (3 tahap) untuk hasil maksimal dengan 
 | `02_convert_to_chat_format.py`| Mengubah dataset mentah menjadi format ShareGPT yang kompatibel MLX         | Setelah validasi, sebelum train   |
 | `03_train.py`                 | Proses fine-tuning bertahap (LoRA + QLoRA) dengan konfigurasi config.yaml   | Utama (dijalankan 2x untuk e2 & e3) |
 
+## 🔧 3 Tahap Fine-tuning (sesuai tesis)
+
+1. Tahap 1 – Language & Glossary Adaptation
+Menggunakan kamus hukum yang dikompilasi dari Database Glosarium BPK dan Black’s Law Dictionary.
+
+2. Tahap 2 – Instruction Tuning
+Menggunakan dataset instruksi bahasa Indonesia open-source dari FreedomIntelligence.
+
+3. Tahap 3 – Regulation-specific Tuning ← Dataset utama dari folder 02
+Menggunakan dataset regulasi daerah Kutai Kartanegara yang dibuat sendiri.
+
 ## ⚙️ Config.yaml (Sudah Disesuaikan Epoch)
 
 ```yaml
@@ -96,7 +107,9 @@ Base model yang digunakan **sama persis** (Llama-3.2-1B-Instruct). Hanya framewo
 - **Tabel 4 & Tabel 5** – Konfigurasi lingkungan & LoRA/QLoRA
 - **Tabel 6** – Perbandingan base model (pra-seleksi)
 
-**File referensi lengkap:** [`../docs/3-tesis.pdf`](../docs/3-tesis.pdf)
+**File referensi lengkap:** [`../docs/3-tesis.pdf`](../docs/3-tesis.pdf)  
+**Dataset publik:** [nxvay/lexindo-kukarkab-alpaca](https://huggingface.co/datasets/nxvay/lexindo-kukarkab-alpaca)  
+**Model final:** [nxvay/lexindo_2e](https://huggingface.co/nxvay/lexindo_2e)
 
 ---
 

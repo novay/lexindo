@@ -2,16 +2,18 @@
 
 Folder ini berisi **tahap pra-seleksi base model** sebelum melakukan fine-tuning domain.
 
-Tujuannya adalah memilih model LLM open-source berukuran kecil (≤3B parameter) yang paling optimal untuk deployment **lokal** di perangkat terbatas (MacBook M1 8GB RAM) sesuai dengan eksperimen tesis.
+Tujuannya adalah memilih model LLM open-source berukuran kecil (≤3B parameter) yang paling optimal untuk deployment **lokal** di perangkat terbatas (MacBook M1 8GB RAM) sesuai dengan eksperimen tesis. Model ini menjadi fondasi untuk ketiga tahap fine-tuning berikutnya.
 
-## 🎯 Tujuan Evaluasi
+## 🎯 Tujuan Pra-seleksi
 
+- Membandingkan beberapa small LLM (1B–3B parameter)
 - Membandingkan performa inferensi (kecepatan & efisiensi)
 - Mengukur metrik kunci:  
   **TTFT** (Time To First Token)  
   **Latency** (Total Latency)  
   **Throughput** (Tokens per Second)  
   **Perplexity** (kualitas bahasa)
+- Memilih *base model* yang optimal untuk *fine-tuning* di Apple Silicon
 
 Semua pengujian dilakukan dengan Unsloth + 4-bit quantization pada perangkat yang sama.
 
@@ -49,8 +51,21 @@ Model ini kemudian digunakan sebagai fondasi LexIndoLLM di tahap fine-tuning (fo
 - `evaluation.ipynb` → Notebook lengkap pra-seleksi (sudah dijalankan)
 - Hasil lengkap dapat dilihat langsung di output cell notebook
 
+## 🔗 Hubungan dengan 3 Tahap Fine-tuning
+*Base model* ini menjadi fondasi untuk seluruh proses:
+
+- Tahap 1 – *Language & Glossary Adaptation* (kamus hukum BPK + Black’s Law Dictionary)
+- Tahap 2 – *Instruction Tuning* (dataset FreedomIntelligence)
+- Tahap 3 – *Regulation-specific Tuning* (dataset nxvay/lexindo-kukarkab-alpaca)
+
+Hasil akhir model setelah 3 tahap:
+https://huggingface.co/nxvay/lexindo_2e
+
 ## 🔗 Referensi Tesis
 
+- **Bagian 3.3** – 3 Tahap Fine-tuning
 - **Tabel 6** – Hasil pra-seleksi base model (tesis)
 - **Bagian 4.1** – Pra-seleksi Base Model (tesis)
-- File tesis lengkap: [`../docs/3-tesis.pdf`](../docs/3-tesis.pdf)
+
+**File referensi lengkap:** [`../docs/3-tesis.pdf`](../docs/3-tesis.pdf)  
+**Model publik:** [nxvay/lexindo_2e](https://huggingface.co/nxvay/lexindo_2e)
