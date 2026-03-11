@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use LexIndoLLM in your research, please cite it as below."
+title: "LexIndoLLM: Large Language Model untuk Konsultasi Regulasi Daerah di Indonesia"
+authors:
+  - family-names: "Rahmadi"
+    given-names: "Novianto"
+  - family-names: "Setyanto"
+    given-names: "Arief"
+journal: "..."
+year: 2026
+doi: "..." 
+url: "https://github.com/novay/lexindo"
+keywords:
+  - large-language-model
+  - retrieval-augmented-generation
+  - indonesian-regional-regulation
+  - fine-tuning
+  - ragas
+license: MIT

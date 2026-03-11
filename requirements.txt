@@ -1,0 +1,20 @@
+streamlit>=1.38.0
+langchain>=0.3.0
+langchain-community
+langchain-huggingface
+langchain-ollama
+langchain-core
+faiss-cpu
+huggingface-hub
+sentence-transformers
+torch
+numpy
+pandas
+python-dotenv
+mlx-lm>=0.15.0      # untuk fine-tuning di Mac M1/M2/M3
+mlx>=0.5.0
+ollama
+PyMuPDF             # untuk ekstrak PDF (OCR nanti)
+pytesseract         # OCR fallback
+pillow
+tqdm
