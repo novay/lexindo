@@ -25,7 +25,7 @@ lexindo/
 ├── requirements.txt
 ├── CITATION.cff
 ├── .gitignore
-├── docs/                          # tesis full + JOISM + Turnitin
+├── docs/                          # Tesis full + Jurnal
 │
 ├── 01_raw_data/
 │   ├── 00-list-pebup-perda.csv
