@@ -72,7 +72,7 @@ lexindo/
 │   └── logs/
 │
 ├── 08_streamlit/
-│   ├── app.py                     # ← script yang kamu kasih
+│   ├── app.py 
 │   ├── chat_history.json
 │   └── README.md
 │
