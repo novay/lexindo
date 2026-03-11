@@ -80,6 +80,7 @@ lexindo/
 │
 └── 09_human_evaluation/
     └── README.md
+```
 
 ## 🚀 Quick Start
 ```bash
