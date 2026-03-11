@@ -88,6 +88,7 @@ git clone https://github.com/novay/lexindo.git
 cd lexindo
 pip install -r requirements.txt
 streamlit run 08_streamlit/app.py
+```
 
 ## 📄 Citation
 ```bibtex
