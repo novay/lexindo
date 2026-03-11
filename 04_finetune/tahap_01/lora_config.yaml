@@ -1,0 +1,5 @@
+data: /Users/novay/Applications/Project/Enterwind/lexindo/python/lexindo/04_finetune/tahap_01/data
+lora_parameters:
+  rank: 16
+  scale: 2.0
+  dropout: 0.0
