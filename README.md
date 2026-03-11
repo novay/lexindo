@@ -15,6 +15,7 @@ Repository resmi proyek **tesis S2 Teknik Informatika** Universitas Amikom Yogya
 - Latency rata-rata **< 3.4 detik** di MacBook M1 Pro
 - Faithfulness **0.77** (RAGAS)
 - 100% offline & bisa dijalankan di laptop biasa
+- Antarmuka **Streamlit** dengan multi-chat history
 
 ## 📁 Struktur Repository
 ```bash
@@ -28,7 +29,7 @@ lexindo/
 │
 ├── 01_raw_data/
 │   ├── 00-list-pebup-perda.csv
-│   ├── 2020/ ... 2026/
+│   ├── 2001/ ... 2026/
 │   └── README.md
 │
 ├── 02_dataset_preparation/
@@ -42,10 +43,7 @@ lexindo/
 ├── 04_finetune/
 │   ├── adapters_lexindo/
 │   ├── base_model/
-│   ├── models/
-│   │   ├── lexindo_lora/
-│   │   ├── lexindo_e2/
-│   │   └── lexindo_e3/
+│   ├── models/ (lexindo_lora, lexindo_e2, lexindo_e3)
 │   ├── 01_check_jsonl.py
 │   ├── 02_convert_to_chat_format.py
 │   ├── 03_train.py
