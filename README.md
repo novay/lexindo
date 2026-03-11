@@ -33,7 +33,12 @@ lexindo/
 │   └── README.md
 │
 ├── 02_dataset_preparation/
-│   ├── 2020/ ... 2025/
+│   ├── dataset
+│   │   ├── 2020/ ... 2025/
+│   ├── split
+│   │   ├── test.jsonl
+│   │   ├── train.jsonl
+│   │   ├── valid.jsonl
 │   └── README.md
 │
 ├── 03_base_model/
@@ -41,9 +46,9 @@ lexindo/
 │   └── README.md
 │
 ├── 04_finetune/
-│   ├── adapters_lexindo/
-│   ├── base_model/
-│   ├── models/ (lexindo_lora, lexindo_e2, lexindo_e3)
+│   ├── tahap_01/
+│   ├── tahap_02/
+│   ├── tahap_03/
 │   ├── 01_check_jsonl.py
 │   ├── 02_convert_to_chat_format.py
 │   ├── 03_train.py
