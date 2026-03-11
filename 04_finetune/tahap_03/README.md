@@ -25,7 +25,7 @@ mlx_lm.lora \
   --batch-size 4 \
   --num-layers 12 \
   --learning-rate 1e-5 \
-  --iters 1000 \
+  --iters 4500 \ 
   --save-every 200 \
   --test \
   --adapter-path /Users/novay/Applications/Project/Enterwind/lexindo/python/lexindo/04_finetune/tahap_03/models/kukarkab-adapter \

@@ -3,7 +3,7 @@ from datasets import load_dataset
 from mlx_lm import lora
 from mlx_lm.tuner import Trainer
 
-BASE_MODEL_PATH = "./models/llama-3.2-1b-instruct"
+BASE_MODEL_PATH = "/Users/novay/Applications/Project/Enterwind/lexindo/python/lexindo/04_finetune/tahap_03/models/lexindo-llm-kukar"
 DATA_PATH = "./data/regulation_qa.jsonl"
 OUTPUT_DIR = "./models/lexindo-1b-kukarkab"
 
