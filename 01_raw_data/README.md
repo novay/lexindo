@@ -1,8 +1,8 @@
 # 📂 Raw Dataset (01_raw_data)
 
-Direktori ini berisi **data mentah (*raw data*)** regulasi daerah Kabupaten Kutai Kartanegara yang menjadi fondasi utama pengembangan **LexIndoLLM**. 
+Direktori ini ("SEHARUSNYA") berisi **data mentah (*raw data*)** regulasi daerah Kabupaten Kutai Kartanegara yang menjadi fondasi utama pengembangan **LexIndoLLM**. 
 
-Data ini diperoleh langsung dari **Bagian Hukum Sekretariat Daerah Kabupaten Kutai Kartanegara** dan telah melalui proses kurasi yang ketat sesuai dengan kebutuhan penelitian tesis S2.
+Data diperoleh langsung dari **Bagian Hukum Sekretariat Daerah Kabupaten Kutai Kartanegara** dan telah melalui proses kurasi yang ketat sesuai dengan kebutuhan penelitian tesis S2.
 
 ## 📊 Ringkasan Data
 
@@ -50,7 +50,7 @@ Untuk memastikan kualitas dan relevansi dataset yang dihasilkan, data di dalam d
 1. **Tidak Ada File PDF** - File PDF asli **tidak diunggah** ke dalam repositori GitHub ini karena ukuran file yang terlalu besar serta untuk menghormati kebijakan hak cipta dan distribusi internal pemerintah daerah.  
    - Semua PDF asli dapat diunduh secara legal dan publik melalui situs resmi: **[JDIH Kutai Kartanegara](https://jdih.kukarkab.go.id)**.
 
-2. **Penggunaan Alur Kerja (*Pipeline*)** - File CSV di direktori ini akan digunakan pada tahap selanjutnya (`02_dataset_preparation`) untuk ekstraksi teks, proses OCR, dan pembuatan format instruksi *ShareGPT*.
+2. **Penggunaan Alur Kerja (*Pipeline*)** - File PDF di direktori ini akan digunakan pada tahap selanjutnya (`02_dataset_preparation`) untuk ekstraksi teks, proses OCR, dan pembuatan format instruksi *ShareGPT*.
 
 ## 🔗 Referensi Tesis
 
