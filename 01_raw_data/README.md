@@ -39,6 +39,7 @@ Data ini diperoleh langsung dari **Bagian Hukum Sekretariat Daerah Kabupaten Kut
      **https://jdih.kukarkab.go.id**
 
 2. **Proses Kurasi**  
+   - Mengecualikan Dokumen Kerjasama, Kajian Hukum, Surat Edaran, draf/rancangan aturan, serta Peraturan tingkat Desa, Menteri, Pusat (PP), dan Presiden.
    - Hanya regulasi yang masih aktif atau memiliki nilai akademik tinggi yang dipertahankan  
    - Dokumen yang dicabut/diperbarui tetap disimpan untuk analisis historis
 
