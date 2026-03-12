@@ -30,9 +30,11 @@ Repository resmi **tesis S2 Teknik Informatika** Universitas Amikom Yogyakarta
 lexindo/
 ├── 01_raw_data/              # Data mentah Perda & Perbup
 ├── 02_dataset_preparation/   # JSONL ShareGPT (11.190 pasang)
+├── 03_base_model/            # Pengujian pra-seleksi base model (evaluation.ipynb)
 ├── 04_finetune/              # 3 tahap fine-tuning (Unsloth)
 ├── 05_rag_corpus/            # FAISS index + embedding
 ├── 06_evaluation_set/        # Hasil RAGAS & human eval
+├── 07_experiments/               # Log eksperimen & notebook tambahan
 ├── 08_streamlit/             # Chat UI
 ├── docs/                     # Tesis lengkap + Jurnal PDF
 ├── CITATION.cff
