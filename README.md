@@ -4,8 +4,10 @@
 *Studi Kasus: Kabupaten Kutai Kartanegara*
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org)
+[![Jupyter Notebook](https://img.shields.io/badge/Notebook-Jupyter-orange)](https://jupyter.org/)
 [![Llama](https://img.shields.io/badge/Llama-3.2-FF9900)](https://llama.meta.com)
 [![Hugging Face](https://img.shields.io/badge/huggingface-%23FFD21E.svg?style=flat&logo=huggingface&logoColor=white)](huggingface.com)
+[![Google Colab](https://img.shields.io/badge/Google%20Colab-%23F9A825.svg?style=flat&logo=googlecolab&logoColor=white)](https://colab.research.google.com)
 [![Unsloth](https://img.shields.io/badge/Unsloth-14b789?style=flat&logo=unsloth&logoColor=white)](https://unsloth.ai)
 [![Ollama](https://img.shields.io/badge/-Ollama-000000?style=flat&logo=ollama&logoColor=white)](https://ollama.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B)](https://streamlit.io)
