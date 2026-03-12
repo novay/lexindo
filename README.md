@@ -6,6 +6,8 @@
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org)
 [![Llama](https://img.shields.io/badge/Llama-3.2-FF9900)](https://llama.meta.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B)](https://streamlit.io)
+[![Unsloth](https://img.shields.io/badge/Unsloth-14b789?style=flat&logo=unsloth&logoColor=white)](https://unsloth.ai)
+[![Hugging Face](https://img.shields.io/badge/huggingface-%23FFD21E.svg?style=flat&logo=huggingface&logoColor=white)](huggingface.com)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 Repository resmi **tesis S2 Teknik Informatika** Universitas Amikom Yogyakarta  
