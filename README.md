@@ -14,8 +14,6 @@ Repository resmi **tesis S2 Teknik Informatika** Universitas Amikom Yogyakarta
 **Paper terkait**:  
 - LexIndoLLM: Large Language Model untuk Konsultasi Regulasi Daerah di Indonesia
 
----
-
 ## ✨ Fitur Utama
 - Model ringan **Llama 3.2-1B** (1 miliar parameter)
 - Fine-tuning bertahap domain-spesifik + RAG berbasis FAISS
@@ -26,8 +24,6 @@ Repository resmi **tesis S2 Teknik Informatika** Universitas Amikom Yogyakarta
 
 ## 🎥 Demo Video
 ...Menyusul...
-
----
 
 ## 📁 Struktur Repository
 ```bash
@@ -79,10 +75,6 @@ streamlit run 08_streamlit/app.py
 **License**: MIT  
 **Disclaimer**: Dataset regulasi hanya untuk keperluan akademik dan riset non-komersial.
 
----
-
 **Terima kasih** kepada dosen pembimbing, pengelola dokumen Kutai Kartanegara, dan semua pihak yang mendukung proyek ini.
-
----
 
 **Made with ❤️ for better public service in Indonesia**
