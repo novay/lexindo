@@ -7,6 +7,7 @@
 [![Llama](https://img.shields.io/badge/Llama-3.2-FF9900)](https://llama.meta.com)
 [![Hugging Face](https://img.shields.io/badge/huggingface-%23FFD21E.svg?style=flat&logo=huggingface&logoColor=white)](huggingface.com)
 [![Unsloth](https://img.shields.io/badge/Unsloth-14b789?style=flat&logo=unsloth&logoColor=white)](https://unsloth.ai)
+[![Ollama](https://img.shields.io/badge/-Ollama-000000?style=flat&logo=ollama&logoColor=white)](https://ollama.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B)](https://streamlit.io)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
