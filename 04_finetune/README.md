@@ -1,15 +1,16 @@
-# Finetuning
+# 🏛️ LexIndoLLM: Finetuning Section
 
-Folder ini berisi **proses fine-tuning domain bertahap** untuk menghasilkan model **LexIndoLLM** berbasis **Llama 3.2-1B-Instruct**.
+Folder ini berisi dokumentasi dan aset untuk **proses fine-tuning domain-spesifik secara bertahap**. Proyek ini bertujuan untuk menghasilkan **LexIndoLLM**, sebuah model bahasa besar berbasis **Llama 3.2-1B-Instruct** yang dioptimalkan untuk ranah hukum Indonesia.
 
-Fine-tuning dilakukan menggunakan **framework MLX** (native Apple Silicon) agar optimal di MacBook M1 8GB RAM.
+Fine-tuning dilakukan menggunakan dua pendekatan utama:
+* **Unsloth:** Digunakan untuk proses *training* skala besar yang efisien dan cepat di lingkungan Google Colab (GPU T4).
+* **Framework MLX:** Digunakan untuk eksperimen lokal dan *fine-tuning* native pada arsitektur Apple Silicon (MacBook M1 Pro 16GB RAM).
 
 ## 🎯 Tujuan Fine-tuning
-
-Melatih model agar:
-- Memahami bahasa hukum formal Indonesia
-- Menguasai struktur dan terminologi regulasi daerah Kutai Kartanegara
-- Memberikan jawaban yang ramah, mudah dipahami, dan selalu grounded ke sumber asli
+Melatih model agar mencapai kompetensi berikut:
+- **Linguistic Precision:** Memahami gaya bahasa hukum formal Indonesia yang seringkali kompleks.
+- **Domain Knowledge:** Menguasai struktur hukum dan terminologi regulasi daerah **Kutai Kartanegara**.
+- **Helpfulness & Grounding:** Memberikan jawaban yang ramah (AI Assistant) namun tetap *grounded* (berbasis data) pada sumber regulasi asli untuk meminimalisir halusinasi.
 
 Fine-tuning dilakukan secara **bertahap** (3 tahap) untuk hasil maksimal dengan komputasi terbatas.
 
@@ -17,100 +18,32 @@ Fine-tuning dilakukan secara **bertahap** (3 tahap) untuk hasil maksimal dengan 
 
 ```bash
 04_finetune/
-├── adapters_lexindo/              # Folder adapter LoRA sementara selama training
-├── base_model/                    # Copy base model (mlx format)
-├── models/
-│   ├── lexindo_lora/              # Adapter LoRA final
-│   ├── lexindo_e2/                # Model setelah 2 epoch (lexindo_2e)
-│   └── lexindo_e3/                # Model setelah 3 epoch (lexindo_3e – terbaik)
-├── 01_check_jsonl.py              # Validasi dataset JSONL
-├── 02_convert_to_chat_format.py   # Preprocessing ke format ShareGPT
-├── 03_train.py                    # Script utama training (LoRA/QLoRA)
-├── config.yaml                    # Konfigurasi training
-├── lexindo-modelfile              # Template Ollama
-└── README.md
+├── mlx/              # Implementasi LoRA/QLoRA dengan MLX untuk Apple Silicon.
+├── unsloth/          # Script training efisien dengan Unsloth (Xformers & Triton).
+└── README.md         # Dokumentasi strategi finetuning.
 ```
 
-### Penjelasan Singkat
-| Script                        | Fungsi Utama                                                                 | Kapan Dijalankan                  |
-|-------------------------------|------------------------------------------------------------------------------|-----------------------------------|
-| `01_check_jsonl.py`           | Validasi dataset JSONL (cek error format, panjang konteks, duplikasi, dll.) | Sebelum training (wajib)          |
-| `02_convert_to_chat_format.py`| Mengubah dataset mentah menjadi format ShareGPT yang kompatibel MLX         | Setelah validasi, sebelum train   |
-| `03_train.py`                 | Proses fine-tuning bertahap (LoRA + QLoRA) dengan konfigurasi config.yaml   | Utama (dijalankan 2x untuk e2 & e3) |
+## 🔧 Strategi 3 Tahap Fine-tuning (Metodologi Tesis)
 
-## 🔧 3 Tahap Fine-tuning (sesuai tesis)
+Untuk mendapatkan hasil maksimal dengan sumber daya komputasi terbatas, proses *training* dibagi menjadi tiga fase berurutan (*Sequential Fine-tuning*):
 
-1. Tahap 1 – Language & Glossary Adaptation
-Menggunakan kamus hukum yang dikompilasi dari Database Glosarium BPK dan Black’s Law Dictionary.
+### 1. Tahap 1 – Language & Glossary Adaptation
 
-2. Tahap 2 – Instruction Tuning
-Menggunakan dataset instruksi bahasa Indonesia open-source dari FreedomIntelligence.
+**Fokus:** Membangun fondasi terminologi.
 
-3. Tahap 3 – Regulation-specific Tuning ← Dataset utama dari folder 02
-Menggunakan dataset regulasi daerah Kutai Kartanegara yang dibuat sendiri.
+* **Dataset:** Kamus hukum komprehensif yang dikurasi dari Database Glosarium BPK dan istilah kunci dari Black’s Law Dictionary (versi bahasa Indonesia).
+* **Output:** Model mulai mengenali istilah teknis hukum (misal: *Kodifikasi*, *Wanprestasi*, *Asas Legalitas*).
 
-## ⚙️ Config.yaml (Sudah Disesuaikan Epoch)
+### 2. Tahap 2 – Instruction Tuning
 
-```yaml
-model: mlx-community/Llama-3.2-1B-Instruct-4bit
-train: true
-data: ./data
-iters: 2000
-batch_size: 4
-num_layers: 16
-rank: 16
-adapter_path: ./adapters_lexindo
-save_every: 500
-learning_rate: 1e-5
-grad_checkpoint: true
-seed: 42
-```
+**Fokus:** Memperbaiki cara berkomunikasi dan pemahaman instruksi umum.
 
-**Cara menghasilkan lexindo_e2 & lexindo_e3:**
-Jalankan `03_train.py` dua kali dengan parameter epoch:
-```bash
-python 03_train.py --epochs 2 --output_dir models/lexindo_e2
-python 03_train.py --epochs 3 --output_dir models/lexindo_e3
-```
+* **Dataset:** Sampel pilihan (10%) dari dataset instruksi bahasa Indonesia *open-source* (**FreedomIntelligence/alpaca-gpt4-indonesian**).
+* **Output:** Model mampu mengikuti perintah pengguna dalam format percakapan natural tanpa kehilangan konteks hukumnya.
 
-## 🚀 Cara Menjalankan (Step by Step)
+### 3. Tahap 3 – Regulation-specific Tuning
 
-1. **Pastikan data sudah siap**  
-   Folder `./data` berisi file JSONL format ShareGPT dari `02_dataset_preparation`.
+**Fokus:** Spesialisasi materi lokal.
 
-2. **Training**
-   ```bash
-   python 03_train.py --epochs 2 --output_dir models/lexindo_e2
-   python 03_train.py --epochs 3 --output_dir models/lexindo_e3
-   ```
-
-3. **Convert ke Ollama & Test**
-   ```bash
-   ollama create lexindo-custom -f lexindo-modelfile
-   ollama run lexindo-custom
-   ```
-
-   Atau langsung pakai versi quantized:
-   ```bash
-   ollama run hf.co/nxvay/lexindo_2e:q4_k_m
-   ```
-
-## Unsloth vs MLX
-- **Pra-seleksi** (folder 03_base_model) menggunakan **Unsloth** → karena sangat cepat untuk benchmarking banyak model di Colab/GPU.
-- **Fine-tuning** menggunakan **MLX** (`mlx-community/Llama-3.2-1B-Instruct-4bit`) → karena framework ini **native Apple Silicon**, jauh lebih hemat RAM dan cepat di MacBook M1 Pro.
-
-Base model yang digunakan **sama persis** (Llama-3.2-1B-Instruct). Hanya framework yang berbeda. Hasil akhir tetap kompatibel.
-
-## 🔗 Referensi Tesis
-
-- **Bagian 3.3** – Fine-tuning Phase (halaman 22–25 tesis)
-- **Tabel 4 & Tabel 5** – Konfigurasi lingkungan & LoRA/QLoRA
-- **Tabel 6** – Perbandingan base model (pra-seleksi)
-
-**File referensi lengkap:** [`../docs/3-tesis.pdf`](../docs/3-tesis.pdf)  
-**Dataset publik:** [nxvay/lexindo-kukarkab-alpaca](https://huggingface.co/datasets/nxvay/lexindo-kukarkab-alpaca)  
-**Model final:** [nxvay/lexindo_2e](https://huggingface.co/nxvay/lexindo_2e)
-
----
-
-
+* **Dataset:** Dataset regulasi daerah Kabupaten Kutai Kartanegara yang diproses dari dokumen PDF asli (Folder `02_dataset`).
+* **Output:** Model akhir (**LexIndoLLM**) yang mampu menjawab pertanyaan spesifik mengenai peraturan perundang-undangan di Kutai Kartanegara.
