@@ -1,0 +1,2 @@
+﻿config_name,search_type,k,fetch_k,lambda_mult,n,context_recall_mean,context_recall_median,context_recall_std,context_precision_mean,context_precision_median,context_precision_std
+hybrid_vec8_kw8_k10,hybrid,10,8,8,100,0.5971477411477412,0.6,0.28320368815261987,0.6921434051182952,0.7473993764072047,0.2766348680673284

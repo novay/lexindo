@@ -1,0 +1,2 @@
+﻿config_name,search_type,k,fetch_k,lambda_mult,n,context_recall_mean,context_recall_median,context_recall_std,context_precision_mean,context_precision_median,context_precision_std
+mmr_k10_fetch40_lambda0.5,mmr,10,40,0.5,100,0.4366298423798423,0.5,0.31287734421502217,0.6385000015390071,0.6458333333091517,0.3104255679905211

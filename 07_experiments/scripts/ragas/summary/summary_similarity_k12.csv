@@ -1,0 +1,2 @@
+﻿config_name,search_type,k,fetch_k,lambda_mult,n,context_recall_mean,context_recall_median,context_recall_std,context_precision_mean,context_precision_median,context_precision_std
+similarity_k12,similarity,12,,,100,0.5257396214896215,0.5,0.3150378450442346,0.6815445234446754,0.7277777777584074,0.29000166734066307
